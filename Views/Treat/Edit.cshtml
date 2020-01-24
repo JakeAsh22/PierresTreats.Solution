@@ -13,11 +13,14 @@
     @Html.HiddenFor(model => model.TreatId)
 
     @Html.LabelFor(model => model.Name)
+    <br>
     @Html.EditorFor(model => model.Name)
+    <br>
     <br>
     @Html.Label("Select flavor")
     @Html.DropDownList("FlavorId")
-
-    <input type="submit" value="Save" />
+    <br>
+    <input type="submit" value="Save" class = "btn btn-warning"/>
 }
+<br>
 <p>@Html.ActionLink("Back to treats", "Index")</p>

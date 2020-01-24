@@ -44,7 +44,7 @@ html {
 body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
-  background-color: aliceblue;
+  background-color: rgb(255, 214, 197);
 }
 .footer {
   position: absolute;
