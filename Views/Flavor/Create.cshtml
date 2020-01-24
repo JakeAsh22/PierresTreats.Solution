@@ -3,7 +3,8 @@
 }
 
 @model PierresTreats.Models.Flavor
-
+<authorization>
+ <deny users="?" />
 <h4>Add a new flavor</h4>
 @using (Html.BeginForm())
 {
