@@ -45,9 +45,11 @@ body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
   background-color: rgb(255, 214, 197);
+  text-align: center;
 }
 .footer {
   position: absolute;
+  text-align: left;
   bottom: 0;
   width: 100%;
   white-space: nowrap;
