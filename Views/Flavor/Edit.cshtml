@@ -3,15 +3,15 @@
   Layout = "_Layout";
 }
 
-@model PierresTreats.Models.Tag
+@model PierresTreats.Models.Flavor
 
 <h1>Edit</h1>
 
-<h4>Edit this tag: @Html.DisplayFor(model => model.Name)</h4>
+<h4>Edit this flavor: @Html.DisplayFor(model => model.Name)</h4>
 
 @using (Html.BeginForm())
 {
-    @Html.HiddenFor(model => model.TagId)
+    @Html.HiddenFor(model => model.FlavorId)
 
     @Html.LabelFor(model => model.Name)
     @Html.EditorFor(model => model.Name)

@@ -4675,7 +4675,7 @@ var rscriptType = ( /^$|^module$|\/(?:java|ecma)script/i );
 
 
 
-// We have to close these tags to support XHTML (#13200)
+// We have to close these flavors to support XHTML (#13200)
 var wrapMap = {
 
 	// Support: IE <=9 only

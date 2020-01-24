@@ -2,17 +2,15 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PierresTreats.Models;
 
-namespace PierresTreats.Migrations
+namespace RecipeBox.Migrations
 {
     [DbContext(typeof(PierresTreatsContext))]
-    [Migration("20200122195045_Initial")]
-    partial class Initial
+    partial class PierresTreatsContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -176,9 +174,25 @@ namespace PierresTreats.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
-            modelBuilder.Entity("PierresTreats.Models.Recipe", b =>
+            modelBuilder.Entity("PierresTreats.Models.Flavor", b =>
                 {
-                    b.Property<int>("RecipeId")
+                    b.Property<int>("FlavorId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Name");
+
+                    b.Property<string>("UserId");
+
+                    b.HasKey("FlavorId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Flavors");
+                });
+
+            modelBuilder.Entity("PierresTreats.Models.Treat", b =>
+                {
+                    b.Property<int>("TreatId")
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("Ingredients");
@@ -187,39 +201,31 @@ namespace PierresTreats.Migrations
 
                     b.Property<string>("Name");
 
-                    b.HasKey("RecipeId");
+                    b.Property<string>("UserId");
 
-                    b.ToTable("Recipes");
+                    b.HasKey("TreatId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Treats");
                 });
 
-            modelBuilder.Entity("PierresTreats.Models.RecipeTag", b =>
+            modelBuilder.Entity("PierresTreats.Models.TreatFlavor", b =>
                 {
-                    b.Property<int>("RecipeTagId")
+                    b.Property<int>("TreatFlavorId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("RecipeId");
+                    b.Property<int>("FlavorId");
 
-                    b.Property<int>("TagId");
+                    b.Property<int>("TreatId");
 
-                    b.HasKey("RecipeTagId");
+                    b.HasKey("TreatFlavorId");
 
-                    b.HasIndex("RecipeId");
+                    b.HasIndex("FlavorId");
 
-                    b.HasIndex("TagId");
+                    b.HasIndex("TreatId");
 
-                    b.ToTable("RecipeTag");
-                });
-
-            modelBuilder.Entity("PierresTreats.Models.Tag", b =>
-                {
-                    b.Property<int>("TagId")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Name");
-
-                    b.HasKey("TagId");
-
-                    b.ToTable("Tags");
+                    b.ToTable("TreatFlavor");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -267,16 +273,30 @@ namespace PierresTreats.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("PierresTreats.Models.RecipeTag", b =>
+            modelBuilder.Entity("PierresTreats.Models.Flavor", b =>
                 {
-                    b.HasOne("PierresTreats.Models.Recipe", "Recipe")
-                        .WithMany("Tags")
-                        .HasForeignKey("RecipeId")
+                    b.HasOne("PierresTreats.Models.ApplicationUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+                });
+
+            modelBuilder.Entity("PierresTreats.Models.Treat", b =>
+                {
+                    b.HasOne("PierresTreats.Models.ApplicationUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+                });
+
+            modelBuilder.Entity("PierresTreats.Models.TreatFlavor", b =>
+                {
+                    b.HasOne("PierresTreats.Models.Flavor", "Flavor")
+                        .WithMany("Treats")
+                        .HasForeignKey("FlavorId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("PierresTreats.Models.Tag", "Tag")
-                        .WithMany("Recipes")
-                        .HasForeignKey("TagId")
+                    b.HasOne("PierresTreats.Models.Treat", "Treat")
+                        .WithMany("Flavors")
+                        .HasForeignKey("TreatId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618

@@ -20,7 +20,7 @@
 
 	function stripHtml( value ) {
 
-		// Remove html tags and space chars
+		// Remove html flavors and space chars
 		return value.replace( /<.[^<>]*?>/g, " " ).replace( /&nbsp;|&#160;/gi, " " )
 
 		// Remove punctuation

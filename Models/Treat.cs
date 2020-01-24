@@ -2,18 +2,18 @@ using System.Collections.Generic;
 
 namespace PierresTreats.Models
 {
-    public class Recipe
+    public class Treat
     {
-        public Recipe()
+        public Treat()
         {
-            this.Tags = new HashSet<RecipeTag>();
+            this.Flavors = new HashSet<TreatFlavor>();
         }
 
-        public int RecipeId { get; set; }
+        public int TreatId { get; set; }
         public string Name { get; set; }
         public string Instructions { get; set; }
         public string Ingredients { get; set; }
         public virtual ApplicationUser User { get; set; }
-        public virtual ICollection<RecipeTag> Tags { get; set; }
+        public virtual ICollection<TreatFlavor> Flavors { get; set; }
     }
 }

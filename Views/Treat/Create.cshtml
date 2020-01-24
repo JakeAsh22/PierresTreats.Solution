@@ -2,9 +2,9 @@
   Layout = "_Layout";
 }
 
-@model PierresTreats.Models.Recipe
+@model PierresTreats.Models.Treat
 
-<h4>Add a new recipe</h4>
+<h4>Add a new treat</h4>
 @using (Html.BeginForm())
 {
     @Html.LabelFor(model => model.Name)
@@ -17,11 +17,11 @@
     @Html.TextBoxFor(model => model.Ingredients)
     <br>
     @Html.Label("Select tag")
-    @Html.DropDownList("TagId")
+    @Html.DropDownList("FlavorId")
     <br>
 
     <br>
-    <input type="submit" value="Add new recipe" />
+    <input type="submit" value="Add new treat" />
     
 }
-<p>@Html.ActionLink("Show all recipes", "Index")</p>
+<p>@Html.ActionLink("Show all treats", "Index")</p>
