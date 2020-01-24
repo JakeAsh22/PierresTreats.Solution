@@ -3,23 +3,22 @@
 }
 
 @using PierresTreats.Models;
-@model IEnumerable<PierresTreats.Models.Flavor>
+@model IEnumerable<PierresTreats.Models.Flavor>;
 
 <h1>Flavors at Pierre's</h1>
 
-@if (Model.Any())
+@if (!@Model.Any())
 {
+
+  <h3>No flavors have been added yet!</h3>
+} 
   <ul>
     @foreach (Flavor flavor in Model)
     {
       <li>@Html.ActionLink($"{flavor.Name}", "Details", new { id = flavor.FlavorId })</li>
     }
-  </ul>
-} 
-else
-{
-  <h3>No flavors have been added yet!</h3>
-}
+  </ul> 
+
 
 <p>@Html.ActionLink("Add new flavor", "Create")</p>
 
