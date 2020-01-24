@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace RecipeBox.Migrations
+namespace PierresTreats.Migrations
 {
     public partial class Authorization : Migration
     {

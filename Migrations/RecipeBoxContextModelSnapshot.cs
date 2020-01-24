@@ -3,12 +3,12 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using RecipeBox.Models;
+using PierresTreats.Models;
 
-namespace RecipeBox.Migrations
+namespace PierresTreats.Migrations
 {
-    [DbContext(typeof(RecipeBoxContext))]
-    partial class RecipeBoxContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(PierresTreatsContext))]
+    partial class PierresTreatsContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
@@ -124,7 +124,7 @@ namespace RecipeBox.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("RecipeBox.Models.ApplicationUser", b =>
+            modelBuilder.Entity("PierresTreats.Models.ApplicationUser", b =>
                 {
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd();
@@ -174,7 +174,7 @@ namespace RecipeBox.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
-            modelBuilder.Entity("RecipeBox.Models.Recipe", b =>
+            modelBuilder.Entity("PierresTreats.Models.Recipe", b =>
                 {
                     b.Property<int>("RecipeId")
                         .ValueGeneratedOnAdd();
@@ -194,7 +194,7 @@ namespace RecipeBox.Migrations
                     b.ToTable("Recipes");
                 });
 
-            modelBuilder.Entity("RecipeBox.Models.RecipeTag", b =>
+            modelBuilder.Entity("PierresTreats.Models.RecipeTag", b =>
                 {
                     b.Property<int>("RecipeTagId")
                         .ValueGeneratedOnAdd();
@@ -212,7 +212,7 @@ namespace RecipeBox.Migrations
                     b.ToTable("RecipeTag");
                 });
 
-            modelBuilder.Entity("RecipeBox.Models.Tag", b =>
+            modelBuilder.Entity("PierresTreats.Models.Tag", b =>
                 {
                     b.Property<int>("TagId")
                         .ValueGeneratedOnAdd();
@@ -238,7 +238,7 @@ namespace RecipeBox.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("RecipeBox.Models.ApplicationUser")
+                    b.HasOne("PierresTreats.Models.ApplicationUser")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -246,7 +246,7 @@ namespace RecipeBox.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("RecipeBox.Models.ApplicationUser")
+                    b.HasOne("PierresTreats.Models.ApplicationUser")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -259,7 +259,7 @@ namespace RecipeBox.Migrations
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("RecipeBox.Models.ApplicationUser")
+                    b.HasOne("PierresTreats.Models.ApplicationUser")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -267,35 +267,35 @@ namespace RecipeBox.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("RecipeBox.Models.ApplicationUser")
+                    b.HasOne("PierresTreats.Models.ApplicationUser")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("RecipeBox.Models.Recipe", b =>
+            modelBuilder.Entity("PierresTreats.Models.Recipe", b =>
                 {
-                    b.HasOne("RecipeBox.Models.ApplicationUser", "User")
+                    b.HasOne("PierresTreats.Models.ApplicationUser", "User")
                         .WithMany()
                         .HasForeignKey("UserId");
                 });
 
-            modelBuilder.Entity("RecipeBox.Models.RecipeTag", b =>
+            modelBuilder.Entity("PierresTreats.Models.RecipeTag", b =>
                 {
-                    b.HasOne("RecipeBox.Models.Recipe", "Recipe")
+                    b.HasOne("PierresTreats.Models.Recipe", "Recipe")
                         .WithMany("Tags")
                         .HasForeignKey("RecipeId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("RecipeBox.Models.Tag", "Tag")
+                    b.HasOne("PierresTreats.Models.Tag", "Tag")
                         .WithMany("Recipes")
                         .HasForeignKey("TagId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("RecipeBox.Models.Tag", b =>
+            modelBuilder.Entity("PierresTreats.Models.Tag", b =>
                 {
-                    b.HasOne("RecipeBox.Models.ApplicationUser", "User")
+                    b.HasOne("PierresTreats.Models.ApplicationUser", "User")
                         .WithMany()
                         .HasForeignKey("UserId");
                 });

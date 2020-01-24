@@ -1,14 +1,14 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace RecipeBox.Models
+namespace PierresTreats.Models
 {
-    public class RecipeBoxContext : IdentityDbContext<ApplicationUser>
+    public class PierresTreatsContext : IdentityDbContext<ApplicationUser>
   {
     public virtual DbSet<Recipe> Recipes { get; set; }
     public DbSet<Tag> Tags { get; set; }
     public DbSet<RecipeTag> RecipeTag { get; set; }
 
-    public RecipeBoxContext(DbContextOptions options) : base(options) { }
+    public PierresTreatsContext(DbContextOptions options) : base(options) { }
   }
 }

@@ -4,9 +4,9 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using RecipeBox.Models;
+using PierresTreats.Models;
 
-namespace RecipeBox.Controllers
+namespace PierresTreats.Controllers
 {
     public class HomeController : Controller
     {

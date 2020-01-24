@@ -1,4 +1,4 @@
-namespace RecipeBox.ViewModels
+namespace PierresTreats.ViewModels
 {
     public class LoginViewModel
     {

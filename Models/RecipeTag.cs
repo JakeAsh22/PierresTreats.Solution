@@ -1,4 +1,4 @@
-namespace RecipeBox.Models
+namespace PierresTreats.Models
 {
     public class RecipeTag
     {

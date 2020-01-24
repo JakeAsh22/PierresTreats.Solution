@@ -1,6 +1,6 @@
 using System;
 
-namespace RecipeBox.Models
+namespace PierresTreats.Models
 {
     public class ErrorViewModel
     {
