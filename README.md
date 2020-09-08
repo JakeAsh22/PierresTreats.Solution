@@ -32,7 +32,7 @@ $ dotnet run
  jacob.ash1998@gmail.com
 
 ## Technologies Used
-_Git, GitHub, C# and .NET Core
+_C#, .NET Core, MySQL, Entity, HTML, CSS, LINQ_ 
 
 
 ## License
